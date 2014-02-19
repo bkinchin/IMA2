@@ -50,13 +50,32 @@
             attributes.id = "IMA2";
             attributes.name = "IMA2";
             attributes.align = "middle";
-            swfobject.embedSWF(
+            
+            var flashvars = {};
+            var params = {
+              allowScriptAccess: "always",
+              allowFullScreen: "true"
+            };
+            var attributes = {};
+            var expressInstallSwfUrl;
+            var minimalFlashVersion = "10.0.0";
+            swfobject.embedSWF("SamplePlayer.swf",
+                               "SamplePlayer",
+                               "650",
+                               "500",
+                               minimalFlashVersion,
+                               expressInstallSwfUrl,
+                               flashvars,
+                               params,
+                               attributes);
+            
+            /*swfobject.embedSWF(
                 "SamplePlayer.swf", "flashContent", 
                 "100%", "100%", 
                 swfVersionStr, xiSwfUrlStr, 
-                flashvars, params, attributes);
+                flashvars, params, attributes);*/
             // JavaScript enabled so display the flashContent div in case it is not replaced with a swf object.
-            swfobject.createCSS("#flashContent", "display:block;text-align:left;");
+            //swfobject.createCSS("#flashContent", "display:block;text-align:left;");
         </script>
     </head>
     <body>

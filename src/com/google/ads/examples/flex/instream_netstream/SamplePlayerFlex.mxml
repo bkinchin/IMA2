@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+                creationComplete="init();"
+                backgroundColor="#FFFFFF"
+                width="855"
+                height="700"
+                layout="absolute">
+  <mx:Script>
+    <![CDATA[
+    import com.google.ads.examples.flex.instream_netstream.SamplePlayer;
+
+    private var samplePlayer:SamplePlayer;
+
+    private function init():void {
+      samplePlayer = new SamplePlayer(Application.application);
+    }
+    ]]>
+  </mx:Script>
+  <mx:VBox x="5" y="5">
+    <mx:HBox>
+      <mx:VBox>
+        <mx:Container width="450" height="250" backgroundColor="#000000">
+          <mx:UIComponent id="videoPlaceHolder" width="450" height="250"/>
+        </mx:Container>
+        <mx:HBox>
+          <mx:Button label="Play" id="playButton"/>
+          <mx:Button label="Pause" id="pauseButton"/>
+          <mx:Button label="Stop" id="stopButton"/>
+        </mx:HBox>
+      </mx:VBox>
+      <mx:TextArea width="385" id="logTextArea" editable="false" height="100%"/>
+    </mx:HBox>
+    <mx:ComboBox id="testChooser"/>
+    <mx:HBox width="100%">
+      <mx:Button label="Load Ad" id="loadAdButton"/>
+      <mx:Button label="Unload Ad" id="unloadAdButton"/>
+    </mx:HBox>
+    <mx:Grid>
+      <mx:GridRow>
+        <mx:GridItem><mx:Label text="Ad Slot Width"/></mx:GridItem>
+        <mx:GridItem><mx:TextInput id="adSlotWidthTextInput"/></mx:GridItem>
+      </mx:GridRow>
+      <mx:GridRow>
+        <mx:GridItem><mx:Label text="Ad Slot Height"/></mx:GridItem>
+        <mx:GridItem><mx:TextInput id="adSlotHeightTextInput"/></mx:GridItem>
+      </mx:GridRow>
+      <mx:GridRow>
+        <mx:GridItem><mx:Label text="Ad Tag Url (Dclk)"/></mx:GridItem>
+        <mx:GridItem><mx:TextInput id="adTagUrlTextInput"/></mx:GridItem>
+      </mx:GridRow>
+      <mx:GridRow>
+        <mx:GridItem><mx:Label text="Ad Type (AdSense)"/></mx:GridItem>
+        <mx:GridItem>
+        <mx:ComboBox id="adTypeChooser"/>
+        </mx:GridItem>
+      </mx:GridRow>
+      <mx:GridRow>
+        <mx:GridItem><mx:Label text="Channels (AdSense)"/></mx:GridItem>
+        <mx:GridItem><mx:TextInput id="channelsTextInput"/></mx:GridItem>
+      </mx:GridRow>
+      <mx:GridRow>
+        <mx:GridItem>
+          <mx:CheckBox label="Content Id (AdSense)" id="contentIdCheckbox"/>
+        </mx:GridItem>
+        <mx:GridItem><mx:TextInput id="contentIdTextInput"/></mx:GridItem>
+      </mx:GridRow>
+      <mx:GridRow>
+        <mx:GridItem>
+          <mx:CheckBox label="Publisher Id (AdSense)" id="publisherIdCheckbox"/>
+        </mx:GridItem>
+        <mx:GridItem><mx:TextInput id="publisherIdTextInput"/></mx:GridItem>
+      </mx:GridRow>
+      <mx:GridRow>
+        <mx:GridItem>
+          <mx:CheckBox label="Disable Companions"
+                       id="disableCompanionsCheckbox"/>
+        </mx:GridItem>
+        <mx:GridItem></mx:GridItem>
+      </mx:GridRow>
+      <mx:GridRow>
+        <mx:GridItem>
+          <mx:Label text="Max Ad Duration (Video only)"/>
+        </mx:GridItem>
+        <mx:GridItem><mx:TextInput id="maxAdDurationTextInput"/></mx:GridItem>
+      </mx:GridRow>
+    </mx:Grid>
+  </mx:VBox>
+</mx:Application>

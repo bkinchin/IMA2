@@ -39,6 +39,8 @@ package com.google.ads.examples.flex.instream_netstream {
 
   import mx.core.Application;
   import mx.core.UIComponent;
+  import flash.utils.Timer;
+  import flash.events.TimerEvent;
 
   public class SamplePlayer extends Sprite {
     private static const CONTENT_URL:String = "http://rmcdn.2mdn.net/Demo/" +
@@ -112,6 +114,29 @@ package com.google.ads.examples.flex.instream_netstream {
 
       initializeTestChooser();
       setAdTypeValuesInDropDown();
+	  setTestValues("500", // adSlotWidth
+                    "500", // adSlotHight
+                    "http://googleads.g.doubleclick.net/pagead/ads?client=ca-video-pub-1948721619348611&slotname=8075501470&description_url=http%3A%2F%2Fwww.sina.com.cn",// adTagUrl
+                    AdsRequestType.VIDEO, // adType
+                    "", // channels
+                    null, // contentId
+                    null, // publisherId
+                    false); // disableCompanionAds
+      TimerExample();
+    }
+	
+	public function TimerExample() {
+            var myTimer:Timer = new Timer(1, 4);
+            myTimer.addEventListener("timer", timerHandler);
+            myTimer.start();
+    }
+
+    public function timerHandler(event:TimerEvent):void {
+            log("timerHandler: " + event);
+			if (flexApplication.stage!=null){
+				loadAd();
+				event.target.stop();
+			}
     }
 
     private function onLoadAdButtonClick(event:Event):void {
@@ -127,6 +152,7 @@ package com.google.ads.examples.flex.instream_netstream {
     private function loadAd():void {
       if (!adsLoader) {
         adsLoader = new AdsLoader();
+		log(flexApplication.stage);
         flexApplication.stage.addChild(adsLoader);
         adsLoader.addEventListener(AdsLoadedEvent.ADS_LOADED, onAdsLoaded);
         adsLoader.addEventListener(AdErrorEvent.AD_ERROR, onAdError);
@@ -803,9 +829,7 @@ package com.google.ads.examples.flex.instream_netstream {
         case VAST_DCLK:
           setTestValues("500", // adSlotWidth
                         "500", // adSlotHight
-                        "http://ad.doubleclick.net/pfadx/N270.132652." +
-                        "1516607168321/B3442378.3;dcadv=1379578;sz=0x0;" +
-                        "ord=3577745;dcmt=text/xml", // adTagUrl
+                        "http://googleads.g.doubleclick.net/pagead/ads?client=ca-video-pub-1948721619348611&slotname=8075501470&description_url=http%3A%2F%2Fwww.sina.com.cn",// adTagUrl
                         AdsRequestType.VIDEO, // adType
                         "", // channels
                         null, // contentId

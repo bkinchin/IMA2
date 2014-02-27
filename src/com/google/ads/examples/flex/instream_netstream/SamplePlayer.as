@@ -116,12 +116,20 @@ package com.google.ads.examples.flex.instream_netstream {
       setAdTypeValuesInDropDown();
 	  setTestValues("500", // adSlotWidth
                     "500", // adSlotHight
-                    "http://googleads.g.doubleclick.net/pagead/ads?client=ca-video-pub-1948721619348611&slotname=8075501470&description_url=http%3A%2F%2Fwww.sina.com.cn",// adTagUrl
+                    "http://googleads.g.doubleclick.net/pagead/ads?ad_type=video&adsafe=high&channel=MidrollVideo%2BTrueViewInStream&client=ca-video-pub-1948721619348611&correlator=1393481257800&dt=1393481257825&flash=12.0.0.70&frm=0&max_ad_duration=110000&num_ads=1&output=xml_vast2&sdkv=2.11.36&slotname=8075501470&sz=400x300&t_pyv=exclude&u_ah=801&u_asa=1&u_aw=1440&u_cd=24&u_h=900&u_his=2&u_java=true&u_nmime=52&u_nplug=10&u_tz=480&u_w=1440&unviewed_position_start=1&url=http%3A%2F%2Fp4p.sina.com.cn%2Ftest%2Fsina%2Fftp%2Fyuemiao%2Fgooglesense%2Fima3_preloader_test_v2_20120516.html&video_doc_id=1&video_format=18&video_product_type=0&video_url_to_fetch=http%3A%2F%2Fvideo.sina.com.cn&videoad_start_delay=1",// adTagUrl
                     AdsRequestType.VIDEO, // adType
                     "", // channels
                     null, // contentId
                     null, // publisherId
                     false); // disableCompanionAds
+      setTestValues("450", // adSlotWidth
+                        "250", // adSlotHight
+                        "", // adTagUrl
+                        AdsRequestType.VIDEO, // adType
+                        "", // channels
+                        "123", // contentId
+                        "ca-video-pub-1948721619348611", // publisherId
+                        false); 
       TimerExample();
     }
 	

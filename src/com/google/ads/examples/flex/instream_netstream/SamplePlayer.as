@@ -116,7 +116,7 @@ package com.google.ads.examples.flex.instream_netstream {
       setAdTypeValuesInDropDown();
       setTestValues("400", // adSlotWidth
                         "300", // adSlotHight
-                        "", // adTagUrl
+                        "http://googleads.g.doubleclick.net/pagead/ads?ad_type=video&adsafe=high&channel=MidrollVideo%2BTrueViewInStream&client=ca-video-pub-1948721619348611&dt=1393506737293&flash=12.0.0.70&frm=0&max_ad_duration=33000&min_ad_duration=15000&num_ads=1&output=xml_vast2&sdkv=2.11.36&sz=400x300&t_pyv=exclude&u_ah=803&u_asa=1&u_aw=1440&u_cd=24&u_h=900&u_his=4&u_java=true&u_nmime=55&u_nplug=11&u_tz=660&u_w=1440&unviewed_position_start=1&url=http%3A%2F%2Fp4p.sina.com.cn%2F&video_doc_id=1&video_format=18&video_product_type=0&video_url_to_fetch=http%3A%2F%2Fwww.example.com%2Fdescription.htm&videoad_start_delay=1", // adTagUrl
                         AdsRequestType.VIDEO, // adType
                         "", // channels
                         "1", // contentId
@@ -134,6 +134,8 @@ package com.google.ads.examples.flex.instream_netstream {
     public function timerHandler(event:TimerEvent):void {
             log("timerHandler: " + event);
 			if (flexApplication.stage!=null){
+				cleanup();
+                playContent();
 				loadAd();
 				event.target.stop();
 			}
